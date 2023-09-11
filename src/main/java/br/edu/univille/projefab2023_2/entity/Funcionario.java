@@ -1,19 +1,26 @@
 package br.edu.univille.projefab2023_2.entity;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idServico;
     private String cargo;
     private double valorHora;
-    
+
+
     public Funcionario(long id, long idServico, String cargo, double valorHora) {
         this.id = id;
         this.idServico = idServico;
