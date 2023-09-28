@@ -14,6 +14,9 @@ public class Cliente {
     private double valorOrcamento;
 
     
+
+    public Cliente() {
+    }
     public Cliente(long id, String nome, double valorOrcamento) {
         this.id = id;
         this.nome = nome;
