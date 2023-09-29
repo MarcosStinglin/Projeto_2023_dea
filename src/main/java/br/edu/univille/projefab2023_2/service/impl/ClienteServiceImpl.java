@@ -13,7 +13,7 @@ import br.edu.univille.projefab2023_2.service.ClienteService;
 public class ClienteServiceImpl  implements ClienteService {
 
     @Autowired
-    private ClienteRepository repository;
+    public ClienteRepository repository;
     @Override
     public List<Cliente> getAll() {
         return repository.findAll();
@@ -21,6 +21,10 @@ public class ClienteServiceImpl  implements ClienteService {
     @Override
     public void save(Cliente cliente) {
         repository.save(cliente);
+    }
+    @Override
+    public void delete(Cliente cliente) {
+        repository.delete(cliente);
     }
 
 }

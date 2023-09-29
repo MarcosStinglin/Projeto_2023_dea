@@ -7,6 +7,9 @@ import br.edu.univille.projefab2023_2.entity.Cliente;;
 @Repository
 public interface ClienteRepository
     extends JpaRepository<Cliente,Long> {
-        
+
+    default void delete(Cliente cliente){
+        delete(cliente);
     }
+}
 
