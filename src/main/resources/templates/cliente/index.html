@@ -11,7 +11,7 @@
 <body>
     <nav th:replace="layout :: menu">(menu)</nav>
     <main>
-        <h1>Clientes</h1>
+        <h1>Cadastro de Clientes</h1>
         <hr>
 
         <a th:href="@{/clientes/novo}" class="btn btn-primary">Novo Cliente</a>
@@ -21,20 +21,14 @@
                 <tr>
                     <th>Id</th>
                     <th>Nome</th>
-                    <th>Endereço</th>
-                    <th>Telefone</th>
-                    <th>E-mail</th>
-                    <th>Data de Nascimento</th>
+                    <th>Valor Orçamento</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="umCliente : ${listaClientes}">
                   <td th:text="${umCliente.id}"></td>
                     <td th:text="${umCliente.nome}"></td>
-                    <td th:text="${umCliente.endereco}"></td>
-                    <td th:text="${umCliente.telefone}"></td>
-                    <td th:text="${umCliente.email}"></td>
-                    <td th:text="${umCliente.nascimento}"></td>
+                    <td th:text="${umCliente.valorOrcamento}"></td>
                     <td><a class="btn btn-secondary" 
                         th:href="@{'/clientes/alterar/' + ${umCliente.id}}">Alterar Cliente</a>
                         <button 
