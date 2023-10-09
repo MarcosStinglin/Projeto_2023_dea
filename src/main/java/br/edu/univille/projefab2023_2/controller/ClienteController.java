@@ -1,4 +1,5 @@
 package br.edu.univille.projefab2023_2.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,39 +13,38 @@ import br.edu.univille.projefab2023_2.service.ClienteService;
 
 @Controller
 @RequestMapping("/clientes")
-public class ClienteController {  
+public class ClienteController {
+
     @Autowired
     private ClienteService service;
-
     @GetMapping
-    public ModelAndView index(){
-        
+    public ModelAndView index (){
+
         var listaClientes = service.getAll();
 
-        return new ModelAndView("cliente/index", "listaClientes", listaClientes);
-    
-
+        return new ModelAndView("cliente/index","listaClientes",listaClientes);
     }
-    @RequestMapping("/novo")
+    @GetMapping("/novo")
     public ModelAndView novo(){
         var novoCliente = new Cliente();
-        return new ModelAndView("cliente/form", "cliente", novoCliente);
+        return new ModelAndView("cliente/form","cliente",novoCliente);
     }
     @PostMapping
     public ModelAndView save(Cliente cliente){
         service.save(cliente);
         return new ModelAndView("redirect:/clientes");
+
+    }
+
+    @GetMapping("/alterar/{id}")
+    public ModelAndView alterar(@PathVariable("id") Cliente cliente){
+        return new ModelAndView("cliente/form",
+            "cliente",cliente);
     }
 
     @GetMapping("/remover/{id}")
     public ModelAndView remover(@PathVariable("id") Cliente cliente){
         service.delete(cliente);
         return new ModelAndView("redirect:/clientes");
-    }
-    
-    @GetMapping("/alterar/{id}")
-    public ModelAndView alterar(@PathVariable("id")Cliente cliente){
-        return new ModelAndView("cliente/form",
-                        "cliente",cliente);
     }
 }
