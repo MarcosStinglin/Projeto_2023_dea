@@ -1,9 +1,13 @@
 package br.edu.univille.projefab2023_2.entity;
 
+import java.sql.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class Cliente {
@@ -13,34 +17,23 @@ public class Cliente {
     private String nome;
     private double valorOrcamento;
 
-    
-
-    public Cliente() {
-    }
-    public Cliente(long id, String nome, double valorOrcamento) {
-        this.id = id;
-        this.nome = nome;
-        this.valorOrcamento = valorOrcamento;
-    }
-    public void setId(long id) {
-        this.id = id;
+    public String getNome() {
+        return nome;
     }
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public void setValorOrcamento(double valorOrcamento) {
-        this.valorOrcamento = valorOrcamento;
-    }
     public long getId() {
         return id;
     }
-    public String getNome() {
-        return nome;
+    public void setId(long id) {
+        this.id = id;
     }
     public double getValorOrcamento() {
         return valorOrcamento;
     }
-
+    public void setValorOrcamento(double valorOrcamento) {
+        this.valorOrcamento = valorOrcamento;
+    }
     
-
 }

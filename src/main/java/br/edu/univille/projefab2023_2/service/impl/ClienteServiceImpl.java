@@ -10,18 +10,21 @@ import br.edu.univille.projefab2023_2.repository.ClienteRepository;
 import br.edu.univille.projefab2023_2.service.ClienteService;
 
 @Service
-public class ClienteServiceImpl implements ClienteService{
+public class ClienteServiceImpl  implements ClienteService {
+
     @Autowired
     private ClienteRepository repository;
-
     @Override
     public List<Cliente> getAll() {
         return repository.findAll();
     }
-
     @Override
     public void save(Cliente cliente) {
         repository.save(cliente);
-        }
-    
+    }
+    @Override
+    public void delete(Cliente cliente) {
+        repository.delete(cliente);
+    }
+
 }
